@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%} Portal {% endblock%}
+{% block content%}
+
+<div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Schedule Lecture</h4>
+                  <p>{{error}}</p>
+                </div>
+                <div class="card-body">
+                  <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                    <div class="row">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Topic</label>
+                          <input type="text" class="form-control" name="topic">
+                        </div>  
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Course Code</label>
+                          <input type="text" class="form-control" name="subject">
+                        </div>  
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Date Time</label>
+                          <input type="datetime-local" class="form-control" name="date">
+                        </div>  
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary pull-right">Confirm</button>
+                    <div class="clearfix"></div>
+                  </form>
+
+
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+{% endblock%}

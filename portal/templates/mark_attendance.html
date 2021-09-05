@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%} Portal {% endblock%}
+{% block content%}
+
+<div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">{{lecture.topic}}</h4>
+                  <p class="card-category">{{lecture.subject}} {{lecture.date}}</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                          Students
+                        </th>
+                        <th>
+                          Mark Attendance
+                        </th>
+                      </thead>
+                      <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                      <tbody>
+                        {% for i in students %}
+                        <tr>
+                        <td>{{i}}
+                        </td>
+                        <td>
+                        <div class="form-check">
+    <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="list[]" value="{{ i.user.username}} checked">
+        <span class="form-check-sign">
+            <span class="check"></span>
+        </span>
+    </label>
+</div>
+                        </td>
+                        </tr>
+                      {% endfor %}  
+                      </tbody>
+                      <button type="submit" class="btn btn-primary pull-right">Save</button>
+                      </form>
+
+                      
+
+
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
+         
+    
+</div>
+
+{% endblock%}
