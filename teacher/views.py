@@ -5,6 +5,13 @@ from django.contrib.auth.models import Group, User
 from .models import course, lecture, teacher
 
 # Create your views here.
+class AdminPage(View):
+    def get(self,request,template_name='adminpage.html'):
+        message={}
+        lectures = lecture.objects.all()
+        message['lectures']=lectures
+        return render(request,template_name,message)
+
 class TeacherPage(View):
     def get(self,request,template_name='teacherpage.html'):
         message={}
@@ -46,8 +53,10 @@ class markAttend(View):
 
     def post(self,request,topic,template_name="mark_attendance.html"):
         attendance = request.POST.getlist('list')
-        Lecture = lecture.objects.filter(topic=topic).update(attendance=attendance)
-        print(Lecture.attendance)
+        lecture.objects.filter(topic=topic).update(attendance=attendance)
+        Lecture = lecture.objects.filter(topic=topic)
+        print(Lecture)
+        print(attendance)
         message={}
         message['lecture']=Lecture
         return render(request,template_name,message)
@@ -62,3 +71,18 @@ class attendance(View):
         students = Course.course_student
         message['students']= students
         return render(request,template_name,message)
+
+class approve(View):
+
+    def get(self,request,topic,template_name="approve.html"):
+        message={}
+        Lecture = lecture.objects.filter(topic=topic)
+        message['lecture']= Lecture[0]
+        Course = Lecture[0].subject
+        students = Course.course_student
+        message['students']= students
+        return render(request,template_name,message)
+
+    def post(self,request,topic,template_name="approve.html"):
+        lecture.objects.filter(topic=topic).update(approved=True)
+        return redirect('teacher:AdminPage')

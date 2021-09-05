@@ -4,50 +4,49 @@
 {% block content%}
 
 <div class="container-fluid">
+          {% if lectures %}
           <div class="row">
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">{{lecture.topic}}</h4>
-                  <p class="card-category">{{lecture.subject}} {{lecture.date}}</p>
+                  <h4 class="card-title ">Lectures</h4>
+                  <p class="card-category"></p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
                     <table class="table">
                       <thead class=" text-primary">
                         <th>
-                          Students
+                          Topic
                         </th>
                         <th>
-                          Mark Attendance
+                          Subject
+                        </th>
+                        <th>
+                          Date
+                        </th>
+                        <th>
+                          Attendance
                         </th>
                       </thead>
-                      <form method="post" enctype="multipart/form-data">
-                  {% csrf_token %}
                       <tbody>
-                        {% for i in students %}
+                        {% for i in lectures %}
                         <tr>
-                        <td>{{i}}
+                        <td>{{i.topic}}
+                        </td>
+                        <td>{{i.subject}}
+                        </td>
+                        <td>{{i.date}}
                         </td>
                         <td>
-                        <div class="form-check">
-    <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" name="list" value="{{i}}" checked>
-        <span class="form-check-sign">
-            <span class="check"></span>
-        </span>
-    </label>
-</div>
-                        </td>
+                        {% if i.approved is True %}Approved
+                        {% else %}
+                        <a href="{% url 'teacher:approve' i.topic %}" class="btn btn-primary btn-sm">Give approval
+                        </a>
+                        {% endif %}
                         </tr>
                       {% endfor %}  
                       </tbody>
-                      <button type="submit" class="btn btn-primary pull-right">Save</button>
-                      </form>
-
-                      
-
-
                     </table>
                   </div>
                 </div>
@@ -55,9 +54,9 @@
             </div>
             
           </div>
-          
+          {% endif %}
          
     
 </div>
 
-{% endblock%}
+{% endblock %}

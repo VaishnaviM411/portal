@@ -25,6 +25,8 @@ class Login(View):
                     return redirect('student:StudentPage')
                 if group == 'teacher_group':
                     return redirect('teacher:TeacherPage')
+                if group == 'admin_group':
+                    return redirect('teacher:AdminPage')
                 else:
                     return render(request, 'landing.html')
             else:

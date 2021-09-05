@@ -26,5 +26,6 @@ class lecture(models.Model):
     date = models.DateTimeField()
     attendance = models.JSONField(default=list)
     lecturer = models.ForeignKey(teacher, on_delete=DO_NOTHING)
+    approved = models.BooleanField(default=False)
     def __str__(self):
         return self.topic
