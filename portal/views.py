@@ -37,7 +37,7 @@ class Login(View):
 
 
 class Logout(View):
-    def get(self, request):
+    def get(self, request,template_name="landing.html"):
         logout(request)
         return render(request, 'landing.html')
         
