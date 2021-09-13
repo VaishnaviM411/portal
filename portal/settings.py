@@ -20,12 +20,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'bf@hb5m@#zo(70t7oe+abr5y%p5fpt3qg_(%mchvhhqmwa_10z'
-
+a = 'bf@hb5m@#zo(70t7oe+abr5y%p'
+b='5fpt3qg_(%mchvhhqmwa_10z'
+SECRET_KEY = a+b
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['attendportal.herokuapp.com']
 
 
 # Application definition
@@ -130,6 +131,9 @@ MEDIA_URL = '/images/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
+]
+STATIC_ROOT = [
+    os.path.join(BASE_DIR, 'staticfiles')
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')

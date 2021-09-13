@@ -1,0 +1,1 @@
+web: gunicorn DeathEaters.wsgi --log-file -
