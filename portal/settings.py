@@ -26,7 +26,7 @@ SECRET_KEY = a+b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['attendportal.herokuapp.com']
+ALLOWED_HOSTS = ['attendportal.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -77,22 +77,22 @@ WSGI_APPLICATION = 'portal.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-import dj_database_url
-DATABASES={}
-DATABASES['default'] = dj_database_url.config(
-    default='mysql://root:portal_admin@localhost:3306/portal_db',
-)
+#import dj_database_url
+#DATABASES={}
+#DATABASES['default'] = dj_database_url.config(
+#    default='mysql://root:portal_admin@localhost:3306/portal_db',
+#)
 
-#DATABASES = {
- #   'default': {
- #       'ENGINE': 'django.db.backends.mysql',
-  #      'NAME': 'portal_db',
-  #      'USER': 'portal_admin',
-   #     'PASSWORD': 'portal_admin',
-    #    'HOST': 'localhost',
-     #   'PORT': '3306',
-   # }
-#}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'portal_db',
+        'USER': 'portal_admin',
+        'PASSWORD': 'portal_admin',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
 
 
 # Password validation
