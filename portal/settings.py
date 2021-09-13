@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'portal.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-#import dj_database_url
+import dj_database_url
 #DATABASES={}
 #DATABASES['default'] = dj_database_url.config(
 #    default='mysql://root:portal_admin@localhost:3306/portal_db',
@@ -86,10 +86,10 @@ WSGI_APPLICATION = 'portal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'portal_db',
-        'USER': 'portal_admin',
-        'PASSWORD': 'portal_admin',
-        'HOST': 'localhost',
+        'NAME': 'brmnyr9wftkmsgbpq78r',
+        'USER': 'umik15es0daeifbn',
+        'PASSWORD': 'Me1zLcliKDVSCFXFRCJV',
+        'HOST': 'brmnyr9wftkmsgbpq78r-mysql.services.clever-cloud.com',
         'PORT': '3306',
     }
 }
