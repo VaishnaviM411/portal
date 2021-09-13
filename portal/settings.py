@@ -76,16 +76,22 @@ WSGI_APPLICATION = 'portal.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'portal_db',
-        'USER': 'portal_admin',
-        'PASSWORD': 'portal_admin',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}
+import dj_database_url
+DATABASES={}
+DATABASES['default'] = dj_database_url.config(
+    default='mysql://root:portal_admin@localhost:3306/portal_db',
+)
+
+#DATABASES = {
+ #   'default': {
+ #       'ENGINE': 'django.db.backends.mysql',
+  #      'NAME': 'portal_db',
+  #      'USER': 'portal_admin',
+   #     'PASSWORD': 'portal_admin',
+    #    'HOST': 'localhost',
+     #   'PORT': '3306',
+   # }
+#}
 
 
 # Password validation
