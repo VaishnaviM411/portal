@@ -8,5 +8,6 @@
 1. Create course
 2. Allocate teacher for the course
 3. Enroll students in the course
+4. Approve Attendance
 
 Refer demo video file.
