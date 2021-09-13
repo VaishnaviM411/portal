@@ -24,7 +24,7 @@ a = 'bf@hb5m@#zo(70t7oe+abr5y%p'
 b='5fpt3qg_(%mchvhhqmwa_10z'
 SECRET_KEY = a+b
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['attendportal.herokuapp.com']
 
